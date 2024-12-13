@@ -1,4 +1,5 @@
 import os
+import sys
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 import llm
@@ -34,9 +35,6 @@ def message(event, say):
             say("The LLM has been activated.")
         if command == "secret":
             say(f"The LLM's secret is {llm_instance.secret}")
-        if command == "exit":
-            say("Exiting...")
-            exit()
     if event.get("channel") != os.environ.get("MAIN_CHANNEL"):
         return
     if "thread_ts" in event:
