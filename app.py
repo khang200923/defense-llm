@@ -55,7 +55,7 @@ def passphrase(ack, say, respond, command):
     print("someone guessed", secret, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     if secret == llm_instance.secret.lower():
         respond("You've found the bot's passphrase! Congrats!")
-        say(f"<@{command["user_id"]}> found the passphrase '{secret}'! The LLM has been reset.")
+        say(f"<@{command['user_id']}> found the passphrase '{secret}'! The LLM has been reset.")
         llm_instance = llm.LLM()
     else:
         respond("That's not the bot's passphrase. Try again!")
