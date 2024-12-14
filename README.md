@@ -90,7 +90,7 @@ Defense LLM is a Slack bot that uses a language model (LLM) to interact with use
     ```
 
 5. Have fun..?
-    ![screenshot from the #defensive-llm channel](screenshot.png)
+    ![screenshot from the #defensive-llm channel](https://github.com/khang200923/defense-llm/blob/main/screenshot.png/?raw=true)
 
 ## Root User Commands
 
