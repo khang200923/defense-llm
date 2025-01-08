@@ -50,7 +50,7 @@ def passphrase(ack, say, respond, command):
     global llm_instance
     secret = command["text"].strip().lower()
     secret = ' '.join(secret.split())
-    print("someone guessed", secret, datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    app.client.chat_postMessage(channel=os.environ.get("ROOT_USER"), text=f"<@{command['user_id']}> guessed the passphrase '{secret}'")
     if secret == llm_instance.secret.lower():
         respond("You've found the bot's passphrase! Congrats!")
         say(f"<@{command['user_id']}> found the passphrase '{secret}'! The LLM has been reset.")

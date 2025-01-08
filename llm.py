@@ -22,4 +22,14 @@ class LLM:
             max_tokens=400
         ).choices[0].message.content
 
+        check = create(
+            messages=[systemp(get("guardian.md").format(secret=self.secret, prompt=prompt, response=output))],
+            model="gpt-4o-mini-2024-07-18",
+            max_tokens=10,
+            temperature=0
+        ).choices[0].message.content
+
+        if "true" == check.lower():
+            return "❌ Haha no."
+
         return output
