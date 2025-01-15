@@ -30,6 +30,6 @@ class LLM:
         ).choices[0].message.content
 
         if "true" == check.lower():
-            return "❌ Haha no."
+            return "❌ I was about to reveal the password, but then I remembered that I'm not allowed to do that."
 
         return output
