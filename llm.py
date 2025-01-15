@@ -7,7 +7,11 @@ words = json.loads(get("words.json"))
 
 @dataclass
 class LLM:
-    secret: int = field(default_factory=lambda: " ".join(random.choices(words, k=4)))
+    secret_tuple: tuple = field(default_factory=lambda: random.choices(words, k=4))
+    secret: str = field(init=False)
+
+    def __post_init__(self):
+        self.secret = " ".join(self.secret_tuple)
 
     def instruct(self, prompt: str) -> str:
         if len(prompt) > 4096:
